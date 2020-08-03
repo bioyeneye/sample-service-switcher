@@ -9,5 +9,10 @@ namespace SampleServiceSwitching.services
         {
             Console.WriteLine($"Sending message to {name} via LinkedLn");
         }
+        
+        public override string ToString()
+        {
+            return "linkedln";
+        }
     }
 }

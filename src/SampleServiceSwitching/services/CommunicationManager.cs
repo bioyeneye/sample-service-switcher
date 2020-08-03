@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Microsoft.Extensions.DependencyInjection;
 using SampleServiceSwitching.services.interfaces;
 
@@ -17,8 +18,16 @@ namespace SampleServiceSwitching.services
 
         public void Send(string name, string communicationChannel)
         {
-            _communicationService = _serviceProvider.GetService;
+            var service = _serviceProvider
+                .GetService<ICommunicationService>(communicationChannel);
+
+            if (service == null)
+            {
+                Console.WriteLine("Error can not find services");
+                return;
+            }
+            
+            service.SendMessage(name);
         }
-        
     }
 }

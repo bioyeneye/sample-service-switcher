@@ -9,5 +9,10 @@ namespace SampleServiceSwitching.services
         {
             Console.WriteLine($"Sending message to {name} via WhatsApp");
         }
+        
+        public override string ToString()
+        {
+            return "whatsapp";
+        }
     }
 }
