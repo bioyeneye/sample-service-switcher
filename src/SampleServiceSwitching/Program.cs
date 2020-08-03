@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
+using SampleServiceSwitching.services;
 
 namespace SampleServiceSwitching
 {
@@ -20,6 +21,7 @@ namespace SampleServiceSwitching
             // Configuration = builder.Build();
             
             var serviceProvider = new ServiceCollection()
+                .AddApplicationService()
                 .AddTransient<App>()
                 .BuildServiceProvider();
             
